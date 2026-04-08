@@ -1,0 +1,185 @@
+/* ========== GLOBAL & DARK MODE VARIABLES ========== */
+:root {
+  --bg-body: #f8fcf8;
+  --bg-card: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --border-light: #e5e7eb;
+  --hero-bg: linear-gradient(135deg, #0b6e4f 0%, #0891b2 100%);
+  --section-alt: #f3f4f6;
+  --footer-bg: #1f2937;
+  --footer-text: #9ca3af;
+  --card-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+
+body.dark {
+  --bg-body: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-light: #334155;
+  --hero-bg: linear-gradient(135deg, #064e3b 0%, #0e7490 100%);
+  --section-alt: #111827;
+  --footer-bg: #020617;
+  --footer-text: #94a3b8;
+  --card-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: system-ui, "Segoe UI", "Poppins", "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  transition:
+    background-color 0.25s ease,
+    color 0.2s ease;
+}
+/* override bootstrap card, navbar, etc with variables */
+.card,
+.bg-white,
+.offcanvas,
+.navbar {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+body.dark .card,
+body.dark .bg-white,
+body.dark .offcanvas,
+body.dark .navbar {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+body.dark .navbar,
+body.dark .offcanvas {
+  background-color: #0f172a !important;
+  border-bottom-color: #334155 !important;
+}
+body.dark .offcanvas .nav-link {
+  color: #e2e8f0 !important;
+}
+body.dark .offcanvas .nav-link:hover {
+  background: #2d3a4e;
+}
+body.dark .text-muted,
+body.dark .text-secondary {
+  color: #94a3b8 !important;
+}
+body.dark .bg-light {
+  background-color: var(--section-alt) !important;
+}
+body.dark .border,
+body.dark .border-bottom,
+body.dark .border-top {
+  border-color: var(--border-light) !important;
+}
+body.dark .shadow-sm,
+body.dark .shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !important;
+}
+body.dark .btn-outline-light {
+  border-color: #cbd5e1;
+  color: #f1f5f9;
+}
+body.dark .btn-outline-light:hover {
+  background-color: #334155;
+  border-color: #94a3b8;
+}
+body.dark .bg-teal-50 {
+  background-color: #1e293b !important;
+}
+body.dark .bg-teal-100 {
+  background-color: #2d3e4a !important;
+}
+body.dark .alert {
+  background-color: #334155;
+  color: #e2e8f0;
+}
+body.dark footer {
+  background-color: #020617 !important;
+}
+/* custom styles */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+.hover-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2);
+}
+body.dark .hover-glow:hover {
+  box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.5);
+}
+.wave-bg {
+  background: var(--hero-bg);
+  transition: background 0.2s;
+}
+.section-title {
+  border-left: 6px solid #0d9488;
+  padding-left: 1rem;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn-fish {
+  background-color: #0f766e;
+  color: white;
+  border-radius: 40px;
+  transition: 0.2s;
+}
+.btn-fish:hover {
+  background-color: #115e59;
+  transform: scale(1.02);
+}
+.card-img-top-icon {
+  font-size: 2.8rem;
+  color: #0d9488;
+}
+.dark-mode-toggle {
+  cursor: pointer;
+  background: #e2e8f0;
+  color: #1e293b !important;
+  border-radius: 40px;
+  padding: 6px 12px;
+  transition: 0.2s;
+  border: 1px solid #cbd5e1;
+}
+.dark-mode-toggle:hover {
+  background: #cbd5e1;
+}
+body.dark .dark-mode-toggle {
+  background: #334155;
+  color: #f1f5f9 !important;
+  border-color: #475569;
+}
+body.dark .dark-mode-toggle:hover {
+  background: #475569;
+}
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+body.dark .dark-mode-toggle {
+  background: #334155;
+}
+/* offcanvas improvements */
+.offcanvas {
+  max-width: 85%;
+}
+@media (max-width: 576px) {
+  .display-4 {
+    font-size: 2.2rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+}

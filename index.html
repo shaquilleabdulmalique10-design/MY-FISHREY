@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AquaLearn - Complete Fishery & Fish Farming Education (Dark Mode)</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap 5 CSS + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS (CDN) - used for utility enhancements alongside Bootstrap -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Override & Dark Mode Styles -->
+</head>
+
+<body class="antialiased">
+
+    <!-- ================= NAVIGATION (OFF-CANVAS FOR SMALL SCREENS) ================= -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm py-2"
+        style="background-color: var(--bg-card); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand text-teal-800 text-xl font-bold" href="#"
+                style="color: var(--text-primary) !important;">
+                <i class="fas fa-fish text-teal-600 me-2"></i> AquaLearn
+            </a>
+
+            <div class="d-flex align-items-center gap-2 ">
+                <!-- Dark Mode Toggle Button (Desktop/Mobile) -->
+                <button id="darkModeToggle" class="btn btn-sm rounded-pill dark-mode-toggle border-0 fw-semibold"
+                    style="color: rgb(11, 11, 11);">
+                    <i class="fas fa-moon me-1"></i> <span id="darkModeText">Dark</span>
+                </button>
+                <!-- Toggler for off-canvas -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#fisheryOffcanvas" aria-controls="fisheryOffcanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!-- Desktop menu (visible on large screens) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#about-fish">About Fish</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#rearing">Rearing Guide</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#species">Fish Species</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#health">Health & Tips</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#resources">Resources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- OFF-CANVAS COMPONENT for responsive mobile navigation (Bootstrap offcanvas) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="fisheryOffcanvas" aria-labelledby="offcanvasLabel"
+        style="background-color: var(--bg-card);">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title text-teal-800" id="offcanvasLabel"><i class="fas fa-water me-2"></i>Fishery Menu
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a class="nav-link" href="#home" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-home me-2"></i> Home</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="#about-fish" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-info-circle me-2"></i> About Fish</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="#rearing" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-seedling me-2"></i> Rearing Guide</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="#species" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-fish me-2"></i> Fish Species</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="#health" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-heartbeat me-2"></i> Health & Tips</a></li>
+                <li class="nav-item mb-2"><a class="nav-link" href="#resources" data-bs-dismiss="offcanvas"><i
+                            class="fas fa-book-open me-2"></i> Resources</a></li>
+            </ul>
+            <hr class="my-3">
+            <div class="mt-3 text-muted small">
+                <i class="fas fa-graduation-cap"></i> Complete fishery education
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="wave-bg text-white py-5 py-md-6">
+            <div class="container py-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7 animate-fade">
+                        <h1 class="display-4 fw-bold mb-3">Master the Art of <span
+                                class="border-bottom border-3 border-white">Fishery & Fish Farming</span></h1>
+                        <p class="lead mb-4">Everything you need to know about fish — from biology, rearing techniques,
+                            pond management, feeding, breeding to disease control. Become an expert aquaculturist.</p>
+                        <a href="#rearing"
+                            class="btn btn-light btn-lg rounded-pill px-4 py-2 fw-semibold text-teal-800"><i
+                                class="fas fa-play-circle me-2"></i>Start Learning</a>
+                        <a href="#species" class="btn btn-outline-light btn-lg rounded-pill px-4 ms-2"><i
+                                class="fas fa-database"></i> Explore Species</a>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <i class="fas fa-fish fa-8x drop-shadow-lg"
+                            style="filter: drop-shadow(0 10px 8px rgba(0,0,0,0.2));"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Fish Section -->
+        <section id="about-fish" class="py-5" style="background-color: var(--bg-body);">
+            <div class="container">
+                <div class="text-center mb-5 fade-up">
+                    <h2 class="section-title d-inline-block pb-2 fw-bold" style="color: var(--text-primary);"><i
+                            class="fas fa-dna text-teal-600 me-2"></i> All About Fish</h2>
+                    <p class="mt-3 fs-5" style="color: var(--text-secondary);">The biology, anatomy, and amazing facts
+                        you must know</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="card h-100 border-0 shadow-sm hover-glow rounded-4"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-heartbeat card-img-top-icon mb-3"></i>
+                                <h5 class="card-title fw-bold">Fish Anatomy</h5>
+                                <p class="card-text" style="color: var(--text-secondary);">Gills for oxygen, fins for
+                                    movement, lateral line system for sensing vibrations — fish are perfectly evolved
+                                    for aquatic life.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="card h-100 border-0 shadow-sm hover-glow rounded-4"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-egg card-img-top-icon mb-3"></i>
+                                <h5 class="card-title fw-bold">Reproduction</h5>
+                                <p class="card-text" style="color: var(--text-secondary);">Most fish lay eggs
+                                    (spawning), but some give live birth. Breeding cycles depend on water temperature &
+                                    seasons.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="card h-100 border-0 shadow-sm hover-glow rounded-4"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-water card-img-top-icon mb-3"></i>
+                                <h5 class="card-title fw-bold">Osmoregulation</h5>
+                                <p class="card-text" style="color: var(--text-secondary);">Freshwater and saltwater fish
+                                    regulate water & salts differently — key knowledge for rearing success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Rear Fish (comprehensive guide) -->
+        <section id="rearing" class="py-5" style="background-color: var(--section-alt);">
+            <div class="container">
+                <div class="mb-5 fade-up">
+                    <h2 class="section-title fw-bold" style="color: var(--text-primary);"><i
+                            class="fas fa-tractor text-teal-600 me-2"></i> How to Rear Fish – Step-by-Step</h2>
+                    <p style="color: var(--text-secondary);">From pond construction to harvesting, master the complete
+                        fish farming process.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-map-marked-alt fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">1. Site Selection & Pond Prep</h4>
+                            <p style="color: var(--text-secondary);">Choose area with good water source, soil quality,
+                                and drainage. Pond depth 1.5-2m, liming & fertilization essential.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-fingerprint fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">2. Fingerling Stocking</h4>
+                            <p style="color: var(--text-secondary);">Select healthy fingerlings, acclimatize to pond
+                                temperature. Stock density: 5000-8000 per acre depending on species.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-apple-alt fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">3. Feeding & Nutrition</h4>
+                            <p style="color: var(--text-secondary);">Balanced feed (protein 25-35%), feed 2-3 times
+                                daily. Floating pellets reduce waste. Monitor intake.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-tachometer-alt fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">4. Water Quality Management</h4>
+                            <p style="color: var(--text-secondary);">Maintain DO >4ppm, pH 6.5-8.5, ammonia low.
+                                Aeration & partial water changes critical.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-shield-alt fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">5. Health & Disease Prevention</h4>
+                            <p style="color: var(--text-secondary);">Quarantine new fish, use probiotics, avoid
+                                overcrowding. Common diseases: Ich, fungal infections.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 fade-up">
+                        <div class="p-3 rounded-4 shadow-sm h-100"
+                            style="background-color: var(--bg-card); color: var(--text-primary);">
+                            <div class="bg-teal-100 rounded-circle d-inline-flex p-3 mb-3"><i
+                                    class="fas fa-dolly fa-2x text-teal-700"></i></div>
+                            <h4 class="fs-5 fw-bold">6. Harvesting & Marketing</h4>
+                            <p style="color: var(--text-secondary);">Partial or full harvest after 6-10 months. Use
+                                seine nets, transport in oxygenated tanks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fish Species Showcase -->
+        <section id="species" class="py-5" style="background-color: var(--bg-body);">
+            <div class="container">
+                <div class="text-center mb-5 fade-up">
+                    <h2 class="section-title d-inline-block fw-bold" style="color: var(--text-primary);"><i
+                            class="fas fa-list-ul text-teal-600 me-2"></i> Popular Fish Species for Farming</h2>
+                    <p style="color: var(--text-secondary);">Learn about Tilapia, Catfish, Carp, Trout and more</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3 fade-up">
+                        <div class="card border-0 shadow rounded-4 overflow-hidden h-100 hover-glow"
+                            style="background-color: var(--bg-card);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-fish fa-3x text-teal-600 mb-2"></i>
+                                <h5 class="fw-bold">Tilapia</h5>
+                                <p class="small" style="color: var(--text-secondary);">Fast growth, disease resistant,
+                                    herbivorous/omnivorous. Ideal for warm freshwater.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-up">
+                        <div class="card border-0 shadow rounded-4 overflow-hidden h-100 hover-glow"
+                            style="background-color: var(--bg-card);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-fish fa-3x text-teal-600 mb-2"></i>
+                                <h5 class="fw-bold">African Catfish</h5>
+                                <p class="small" style="color: var(--text-secondary);">High demand, air-breathing
+                                    ability, high stocking density, very hardy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-up">
+                        <div class="card border-0 shadow rounded-4 overflow-hidden h-100 hover-glow"
+                            style="background-color: var(--bg-card);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-fish fa-3x text-teal-600 mb-2"></i>
+                                <h5 class="fw-bold">Common Carp</h5>
+                                <p class="small" style="color: var(--text-secondary);">Bottom feeder, adaptable,
+                                    traditional pond fish, fast reproductive rate.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-up">
+                        <div class="card border-0 shadow rounded-4 overflow-hidden h-100 hover-glow"
+                            style="background-color: var(--bg-card);">
+                            <div class="card-body text-center">
+                                <i class="fas fa-fish fa-3x text-teal-600 mb-2"></i>
+                                <h5 class="fw-bold">Rainbow Trout</h5>
+                                <p class="small" style="color: var(--text-secondary);">Cold-water species, high oxygen
+                                    requirement, excellent for RAS systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health, Diseases & Everything about Fish Health -->
+        <section id="health" class="py-5" style="background-color: var(--section-alt);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 fade-up mb-4 mb-lg-0">
+                        <h2 class="section-title fw-bold" style="color: var(--text-primary);"><i
+                                class="fas fa-stethoscope text-teal-600 me-2"></i> Fish Health & Common Diseases</h2>
+                        <p class="mt-3" style="color: var(--text-secondary);">Recognizing early signs of disease can
+                            save your stock. Keep water pristine, use medicated feed when necessary, and quarantine new
+                            arrivals.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check-circle text-teal-600 me-2"></i> <strong>White Spot
+                                    (Ich)</strong> – treat with salt baths or formalin.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-teal-600 me-2"></i> <strong>Fin
+                                    Rot</strong> – improve water quality, antibacterial treatment.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-teal-600 me-2"></i> <strong>Swim Bladder
+                                    Disorder</strong> – caused by overfeeding, adjust diet.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-teal-600 me-2"></i> <strong>Fungal
+                                    Infections</strong> – cotton-like growth, use antifungal agents.</li>
+                        </ul>
+                        <div class="alert rounded-3 mt-3"
+                            style="background-color: var(--bg-card); color: var(--text-primary); border-left: 4px solid #0d9488;">
+                            <i class="fas fa-lightbulb text-warning"></i> Pro Tip: Regular monitoring of fish behavior
+                            and water parameters prevents most diseases.
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center fade-up">
+                        <div class="p-4 rounded-4 shadow" style="background-color: var(--bg-card);">
+                            <i class="fas fa-syringe fa-4x text-teal-500 mb-3"></i>
+                            <h4>Vaccination & Biosecurity</h4>
+                            <p style="color: var(--text-secondary);">Modern aquaculture uses vaccines against bacterial
+                                diseases. Maintain biosecurity, disinfect equipment, and record health logs.</p>
+                            <hr style="border-color: var(--border-light);">
+                            <i class="fas fa-chart-line"></i> <strong>Optimal parameters:</strong> Temp 25-30°C
+                            (tropical), Ammonia 0 ppm, Nitrite <0.1ppm </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="py-5" style="background-color: var(--bg-body);">
+            <div class="container">
+                <div class="text-center fade-up mb-5">
+                    <h2 class="section-title d-inline-block fw-bold" style="color: var(--text-primary);"><i
+                            class="fas fa-graduation-cap"></i> Complete Fishery Library</h2>
+                    <p style="color: var(--text-secondary);">Must-know facts, feeding charts, and advanced techniques
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 fade-up">
+                        <div class="border rounded-4 p-4 h-100 shadow-sm"
+                            style="background-color: var(--bg-card); border-color: var(--border-light) !important;">
+                            <i class="fas fa-chart-simple fa-2x text-teal-600 mb-3"></i>
+                            <h5>Feeding Tables</h5>
+                            <p style="color: var(--text-secondary);">Fingerlings: 5-8% body weight/day. Growers: 2-4%.
+                                Adjust based on water temp & appetite.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 fade-up">
+                        <div class="border rounded-4 p-4 h-100 shadow-sm"
+                            style="background-color: var(--bg-card); border-color: var(--border-light) !important;">
+                            <i class="fas fa-seedling fa-2x text-teal-600 mb-3"></i>
+                            <h5>Integrated Fish Farming</h5>
+                            <p style="color: var(--text-secondary);">Combine fish with poultry or rice. Nutrient
+                                recycling, extra income, sustainable approach.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 fade-up">
+                        <div class="border rounded-4 p-4 h-100 shadow-sm"
+                            style="background-color: var(--bg-card); border-color: var(--border-light) !important;">
+                            <i class="fas fa-water-ladder fa-2x text-teal-600 mb-3"></i>
+                            <h5>Recirculating Aquaculture Systems (RAS)</h5>
+                            <p style="color: var(--text-secondary);">Land-based, water reuse, high control. Suitable for
+                                urban farming and endangered species.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 fade-up">
+                    <div class="col-12">
+                        <div class="p-4 rounded-4 text-center"
+                            style="background-color: var(--section-alt); color: var(--text-primary);">
+                            <i class="fas fa-quote-left fa-2x text-teal-600 me-2"></i> "Knowledge is the key to
+                            sustainable fishery — understand fish behavior, water chemistry, and nutrition for maximum
+                            yield."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- interactive section: daily fishery tip -->
+        <section class="py-4 text-white" style="background: #0f766e;">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <i class="fas fa-lightbulb fa-2x mb-2"></i>
+                        <h4 class="fw-semibold">Daily Fishery Wisdom</h4>
+                        <p id="dailyTip" class="lead fs-6">Click the button to get an essential fish farming tip!</p>
+                        <button id="newTipBtn" class="btn btn-warning rounded-pill px-4 mt-2 fw-bold"><i
+                                class="fas fa-sync-alt"></i> Get New Tip</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-4" style="background-color: var(--footer-bg); color: var(--footer-text);">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-5">
+                    <h5 class="fw-semibold text-white"><i class="fas fa-fish me-2"></i> AquaLearn</h5>
+                    <p>Your complete guide to fishery, aquaculture, and fish rearing. Everything you need to know about
+                        fish — from A to Z. Empowering sustainable fish farming.</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="text-white">Explore</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-decoration-none" style="color: var(--footer-text);">Home</a>
+                        </li>
+                        <li><a href="#rearing" class="text-decoration-none"
+                                style="color: var(--footer-text);">Rearing</a></li>
+                        <li><a href="#species" class="text-decoration-none"
+                                style="color: var(--footer-text);">Species</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white">Follow Us</h6>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="mt-3 small">© 2025 AquaLearn | All you need about fish farming</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="scritp.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .drop-shadow-lg {
+            filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .bg-teal-100 {
+            background-color: #ccfbf1;
+        }
+
+        body.dark .bg-teal-100 {
+            background-color: #2d4a4a;
+        }
+
+        .text-teal-700 {
+            color: #0f766e;
+        }
+
+        .btn-outline-light:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</body>
+
+</html>
